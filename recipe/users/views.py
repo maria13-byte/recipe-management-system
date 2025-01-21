@@ -8,7 +8,10 @@ from django.urls import reverse
 
 def register(request):
     if request.method == 'POST':
+        if "already_in" in request.POST:
+             return redirect('login')
         form = CustomUserCreationForm(request.POST)
+       
         if form.is_valid():
             form.save()
             return redirect('login')

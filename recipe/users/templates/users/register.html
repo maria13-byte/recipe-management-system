@@ -1,15 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p, form {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #2980b9;
+        }
+
+        form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* Section and links styling */
+        p {
+            text-align: center;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        /* Mobile-friendly layout */
+        @media (max-width: 500px) {
+            .container {
+                width: 90%;
+            }
+
+            form button {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            form input {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+        <hr>
+        <p>Already registered?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="already_registered">Sign In</button>
+        </form>
+        <p>Or click <a href="{% url 'login' %}">here</a> to sign in.</p>
+    </div>
 </body>
 </html>
+
+
+
+
+
+
+
 
