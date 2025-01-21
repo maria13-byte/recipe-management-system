@@ -8,7 +8,34 @@ venv/
 env/
 
 # Django specific
+*.sqlite3# Ignore all .pyc and .pyo files
+*.py[c,o]
+
+# Ignore virtual environment directories
+venv/
+env/
+
+# Ignore Django specific files and directories
 *.sqlite3
+db.sqlite3
+/media/
+staticfiles/
+
+# Ignore environment variables file
+.env
+
+# Ignore IDE files and directories
+*.vscode/
+*.idea/
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore other miscellaneous files
+*.log
+*.tmp
+*.bak
 db.sqlite3
 /media/
 staticfiles/

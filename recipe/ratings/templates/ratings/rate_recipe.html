@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rate Recipe</title>
+</head>
+<body>
+    <h2>Rate Recipe</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5"><br>
+        <button type="submit">Rate</button>
+    </form>
+</body>
+</html>

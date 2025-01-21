@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ form.instance.pk|yesno:"Update,Create" }} Recipe</title>
+</head>
+<body>
+    <h2>{{ form.instance.pk|yesno:"Update,Create" }} Recipe</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

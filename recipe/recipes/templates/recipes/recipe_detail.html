@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ recipe.title }}</h2>
+    <p><strong>Author:</strong> {{ recipe.author.username }}</p>
+    <p><strong>Ingredients:</strong></p>
+    <pre>{{ recipe.ingredients }}</pre>
+    <p><strong>Instructions:</strong></p>
+    <pre>{{ recipe.instructions }}</pre>
+    <p><strong>Tags:</strong></p>
+    <ul>
+        {% for tag in recipe.tags.all %}
+            <li>{{ tag.name }}</li>
+        {% endfor %}
+    </ul>
+    {% if user.is_authenticated and user == recipe.author %}
+        <a href="{% url 'update_recipe' recipe.pk %}">Edit Recipe</a>
+        <a href="{% url 'delete_recipe' recipe.pk %}">Delete Recipe</a>
+    {% endif %}
+{% endblock %}
